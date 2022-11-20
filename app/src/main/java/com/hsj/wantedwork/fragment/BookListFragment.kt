@@ -1,7 +1,6 @@
 package com.hsj.wantedwork.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
@@ -10,10 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hsj.wantedwork.R
 import com.hsj.wantedwork.adapter.BookListAdapter
 import com.hsj.wantedwork.base.view.BaseKotlinFragment
-import com.hsj.wantedwork.common.CommonValue.BOOK_MAX_RESULTS_QUERY
-import com.hsj.wantedwork.common.CommonValue.BOOK_PATH
-import com.hsj.wantedwork.common.CommonValue.BOOK_SEARCH_WORD_QUERY
-import com.hsj.wantedwork.common.CommonValue.BOOK_START_INDEX_QUERY
 import com.hsj.wantedwork.common.CommonValue.MAX_RESULTS
 import com.hsj.wantedwork.viewmodel.DetailViewModel
 import kotlinx.android.synthetic.main.fragment_book_list.*
