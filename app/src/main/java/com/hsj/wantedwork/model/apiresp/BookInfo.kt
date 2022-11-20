@@ -1,4 +1,4 @@
-package com.hsj.wantedwork.base.model.apiresp
+package com.hsj.wantedwork.model.apiresp
 
 data class BookInfo(
     // 정상, 그외 오류메시지

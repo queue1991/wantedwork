@@ -1,4 +1,4 @@
-package com.hsj.wantedwork.base.model.service
+package com.hsj.wantedwork.model.service
 
 import com.google.gson.JsonObject
 import io.reactivex.rxjava3.core.Single

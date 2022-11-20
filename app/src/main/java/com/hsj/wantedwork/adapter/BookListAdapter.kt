@@ -10,8 +10,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.hsj.wantedwork.R
-import com.hsj.wantedwork.base.model.apiresp.Book
-import com.hsj.wantedwork.base.model.apiresp.BookInfo
+import com.hsj.wantedwork.model.apiresp.Book
+import com.hsj.wantedwork.model.apiresp.BookInfo
 
 class BookListAdapter(private val context: Context, val items:ArrayList<Book>, val listener : ClickBookListener) : RecyclerView.Adapter<BookListAdapter.BookViewHolder>() {
 

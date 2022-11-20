@@ -3,7 +3,7 @@ package com.hsj.wantedwork.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.gson.Gson
-import com.hsj.wantedwork.base.model.apiresp.BookInfoApiDTO
+import com.hsj.wantedwork.model.apiresp.BookInfoApiDTO
 import com.hsj.wantedwork.base.viewmodel.BaseKotlinViewModel
 import com.hsj.wantedwork.common.CommonValue
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers

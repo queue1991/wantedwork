@@ -1,9 +1,9 @@
 package com.hsj.wantedwork.di
 
-import com.hsj.wantedwork.base.model.DataModel
-import com.hsj.wantedwork.base.model.DataModelImpl
+import com.hsj.wantedwork.model.DataModel
+import com.hsj.wantedwork.model.DataModelImpl
 import com.hsj.wantedwork.common.CommonValue.REAL_BASE_URL
-import com.hsj.wantedwork.base.model.service.RetrofitService
+import com.hsj.wantedwork.model.service.RetrofitService
 import com.hsj.wantedwork.viewmodel.DetailRepository
 import com.hsj.wantedwork.viewmodel.DetailViewModel
 import org.koin.android.ext.koin.androidContext
