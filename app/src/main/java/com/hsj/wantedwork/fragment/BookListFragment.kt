@@ -3,6 +3,8 @@ package com.hsj.wantedwork.fragment
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.hsj.wantedwork.R
@@ -53,6 +55,13 @@ class BookListFragment : BaseKotlinFragment<DetailViewModel>(){
 
                 viewModel.isLoadMore = true
             }
+        }
+
+        viewModel.isLoading.observe(this.viewLifecycleOwner) {
+            if(it)
+                progress_circular.visibility = VISIBLE
+            else
+                progress_circular.visibility = GONE
         }
     }
 

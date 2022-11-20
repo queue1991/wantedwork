@@ -1,6 +1,5 @@
 package com.hsj.wantedwork.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.gson.Gson
@@ -31,6 +30,10 @@ class DetailViewModel(private val detailRepository : DetailRepository) : BaseKot
         _bookListMore.postValue(list)
     }
 
+    private fun setIsLoading(isLoading: Boolean){
+        _isLoading.postValue(isLoading)
+    }
+
     fun getPreviewLink() : String{
         return bookList.value?.items?.get(clickedBookNo)?.volumeInfo?.previewLink!!
     }
@@ -51,8 +54,6 @@ class DetailViewModel(private val detailRepository : DetailRepository) : BaseKot
         query.append(String.format(CommonValue.BOOK_START_INDEX_QUERY, startIdx))
         query.append(String.format(CommonValue.BOOK_MAX_RESULTS_QUERY, CommonValue.MAX_RESULTS))
 
-        Log.d("testset","testse :: " + query.toString())
-
         return query.toString()
     }
 
@@ -61,6 +62,8 @@ class DetailViewModel(private val detailRepository : DetailRepository) : BaseKot
      * search button Click 시 getBookList
      */
     fun getBookList(){
+        setIsLoading(true)
+
         addDisposable(detailRepository.getBookList(getQuery(false))
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -68,6 +71,8 @@ class DetailViewModel(private val detailRepository : DetailRepository) : BaseKot
                 it.run{
                     val bookInfoApiDTO = Gson().fromJson(it.toString(), BookInfoApiDTO::class.java)
                     setBookList(bookInfoApiDTO)
+
+                    setIsLoading(false)
                 }
             },{
 
@@ -79,6 +84,7 @@ class DetailViewModel(private val detailRepository : DetailRepository) : BaseKot
      * search button Click 시 getBookList
      */
     fun getBookListMore(){
+        setIsLoading(true)
         isLoadMore = false
 
         addDisposable(detailRepository.getBookList(getQuery(true))
@@ -88,6 +94,9 @@ class DetailViewModel(private val detailRepository : DetailRepository) : BaseKot
                 it.run{
                     val bookInfoApiDTO = Gson().fromJson(it.toString(), BookInfoApiDTO::class.java)
                     setBookListMore(bookInfoApiDTO)
+
+                    setIsLoading(false)
+
                 }
             },{
 
