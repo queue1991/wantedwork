@@ -30,19 +30,19 @@ class BookDetailFragment : BaseKotlinFragment<DetailViewModel>(){
 
         webview.webChromeClient = object : WebChromeClient() {
             override fun onProgressChanged(view: WebView?, newProgress: Int) {
-                progress_horizontal.progress = newProgress
-                super.onProgressChanged(view, newProgress)
+                if(progress_horizontal != null)
+                    progress_horizontal.progress = newProgress
             }
         }
 
         webview.webViewClient = object : WebViewClient() {
             override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
-                progress_horizontal.visibility = VISIBLE
-                super.onPageStarted(view, url, favicon)
+                if(progress_horizontal != null)
+                    progress_horizontal.visibility = VISIBLE
             }
             override fun onPageFinished(view: WebView?, url: String?) {
-                progress_horizontal.visibility = GONE
-                super.onPageFinished(view, url)
+                if(progress_horizontal != null)
+                    progress_horizontal.visibility = GONE
             }
         }
 
